@@ -12,13 +12,19 @@ import '../scss/style.scss'
 // Temp fix for reactstrap
 import '../scss/core/_dropdown-menu-right.scss'
 
+//Views
+import Login from './views/Pages/Login/'
+import Register from './views/Pages/Register/'
+
 // Containers
 import Full from './containers/Full/'
 
 ReactDOM.render((
   <HashRouter>
     <Switch>
-      <Route path="/" name="Home" component={Full}/>
+        <Route exact path="/login" name="Login Page" component={Login}/>
+        <Route exact path="/register" name="Register Page" component={Register}/>
+        <Route path="/" name="Home" component={Full}/>
     </Switch>
   </HashRouter>
 ), document.getElementById('root'));
