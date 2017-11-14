@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter, Route, Switch} from 'react-router-dom';
+//Redux
+import { Provider } from 'react-redux';
 
 // Styles
 // Import Font Awesome Icons Set
