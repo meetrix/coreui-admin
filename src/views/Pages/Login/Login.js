@@ -1,8 +1,42 @@
 import React, {Component} from 'react';
 import {Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGroup, InputGroupAddon} from 'reactstrap';
+import firebase from 'firebase';
 
+
+const config = require('../../../config.json');
 
 class Login extends Component {
+
+    constructor(){
+        super();
+        firebase.initializeApp(config.firebase_config);
+
+    }
+    google_siginin(){
+
+        console.log("google siginin");
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+              var token = result.credential.accessToken;
+              // The signed-in user info.
+              var user = result.user;
+              console.log(token)
+          // ...
+        }).catch(function(error) {
+          // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // The email of the user's account used.
+              var email = error.email;
+              // The firebase.auth.AuthCredential type that was used.
+              var credential = error.credential;
+              console.log(errorMessage)
+          // ...
+        });
+
+
+    }
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -24,7 +58,7 @@ class Login extends Component {
                     </InputGroup>
                     <Row>
                       <Col xs="6">
-                        <Button color="primary" className="px-4">Login</Button>
+                        <Button color="primary" className="px-4" onClick={this.google_siginin}>Login</Button>
                       </Col>
                       <Col xs="6" className="text-right">
                         <Button color="link" className="px-0">Forgot password?</Button>

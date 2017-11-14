@@ -1,8 +1,11 @@
-/**
- * Created by supun on 13/11/17.
- */
 {
-    "firebase":{
-        
-}
+        "firebase_config": {
+                "apiKey": "AIzaSyBExKczwdGSd-75NnUcOwWfSdTdsbKmTy4",
+                "authDomain": "coreui-admin-96b81.firebaseapp.com",
+                "databaseURL": "https://coreui-admin-96b81.firebaseio.com",
+                "projectId": "coreui-admin-96b81",
+                "storageBucket": "coreui-admin-96b81.appspot.com",
+                "messagingSenderId": "938047919288"
+        }
+
 }
