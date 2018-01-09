@@ -3,7 +3,7 @@
  */
 import _tutors from './tutors.json'
 
-const TIMEOUT = 100
+const TIMEOUT = 3000
 export default () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {

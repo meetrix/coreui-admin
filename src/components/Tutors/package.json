@@ -1,6 +1,6 @@
 {
-  "name": "Tutor",
+  "name": "Tutors",
   "version": "0.0.0",
   "private": true,
-  "main": "./Tutor.js"
+  "main": "./Tutors.js"
 }

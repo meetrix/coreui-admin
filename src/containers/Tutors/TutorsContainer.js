@@ -5,10 +5,10 @@
 import {connect} from 'react-redux';
 
 //React Component
-import TutorsView from './TutorsView'
+import TutorsView from './TutorsContainerView'
 
 //Redux Action
-import { getTutors } from '../../../actions'
+import { getTutors } from '../../actions'
 
 
 function mapStateToProps(state){

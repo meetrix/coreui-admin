@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 import { render } from 'react-dom'
-import { createStore,applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import 'regenerator-runtime/runtime'
-import createSagaMiddleware from 'redux-saga';
+
 
 // Styles
 // Import Font Awesome Icons Set
@@ -20,22 +18,24 @@ import '../scss/core/_dropdown-menu-right.scss'
 //Views
 import Login from './views/Pages/Login/'
 import Register from './views/Pages/Register/'
-import TutorsContainer from './views/Pages/Tutors/TutorsContainer'
+import TutorsContainer from './containers/Tutors/TutorsContainer'
 
 // Containers
 import Full from './containers/Full/'
-//custom module
-import reducer from './reducers';
 
+//Action
 import {getTutors} from './actions'
-import dataSaga from './actions/saga'
+//Configure Store
+import configure from './configurestore'
+//Initiate store
+const initialState = {
+    tutors: [{id:0, name:'init'}]
+};
 
-const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(reducer,
-    applyMiddleware(sagaMiddleware));
 
-sagaMiddleware.run(dataSaga)
+
+const store = configure(initialState);
 store.dispatch(getTutors());
 
 ReactDOM.render((

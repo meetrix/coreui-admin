@@ -5,7 +5,7 @@ import {SAGA_ACTIONS,TUTOR_ACTIONS} from '../constants/ActionTypes';
 import getTutors from '../api/Tutors'
 import { put, takeEvery } from 'redux-saga/effects'
 
-function* fetchData (action) {
+function* fetchTutors (action) {
     console.log("fetchdata")
     try {
         const tutors = yield getTutors()
@@ -17,7 +17,7 @@ function* fetchData (action) {
 }
 
 function* dataSaga () {
-    yield takeEvery(TUTOR_ACTIONS.FETCH_TUTORS, fetchData)
+    yield takeEvery(TUTOR_ACTIONS.FETCH_TUTORS, fetchTutors)
 }
 
 export default dataSaga
