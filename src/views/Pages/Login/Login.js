@@ -1,27 +1,37 @@
 import React, {Component} from 'react';
-import {Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGroup, InputGroupAddon} from 'reactstrap';
+import {Container, Row, Col, CardGroup, Card, CardBody,CardFooter,  Button, Input, InputGroup, InputGroupAddon} from 'reactstrap';
 import firebase from 'firebase';
-
+import { Route, Redirect } from 'react-router'
+import GoogleButton from 'react-google-button'
 
 const config = require('../../../config.json');
 
 class Login extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         firebase.initializeApp(config.firebase_config);
 
+        this.google_siginin = this.google_siginin.bind(this);
+
+
     }
-    google_siginin(){
+
+    google_siginin(props){
 
         console.log("google siginin");
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-              var token = result.credential.accessToken;
-              // The signed-in user info.
-              var user = result.user;
-              console.log(token)
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            console.log(token);
+            //TODO add user to store
+            console.log(user);
+
+            props.history.push('/')
+
           // ...
         }).catch(function(error) {
           // Handle Errors here.
@@ -37,6 +47,7 @@ class Login extends Component {
 
 
     }
+
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -58,12 +69,25 @@ class Login extends Component {
                     </InputGroup>
                     <Row>
                       <Col xs="6">
-                        <Button color="primary" className="px-4" onClick={this.google_siginin}>Login</Button>
+                        <Button color="primary" className="px-4" >Login</Button>
                       </Col>
                       <Col xs="6" className="text-right">
                         <Button color="link" className="px-0">Forgot password?</Button>
                       </Col>
                     </Row>
+                      <br/>
+                      <Row>
+                          <Col xs="12" sm="6">
+                              <Button className="btn-facebook" block><span>facebook</span></Button>
+                          </Col>
+                          <Col xs="12" sm="6">
+                              <Button className="btn-twitter" block><span>twitter</span></Button>
+                          </Col>
+                          <Col xs="12" sm="6">
+
+                              <Button className="btn-google-plus" block onClick={ ()=>this.google_siginin(this.props)}><span>google</span></Button>
+                          </Col>
+                      </Row>
                   </CardBody>
                 </Card>
                 <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: 44 + '%' }}>
