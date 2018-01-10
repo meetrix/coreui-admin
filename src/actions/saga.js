@@ -4,25 +4,16 @@
 import {SAGA_ACTIONS,TUTOR_ACTIONS} from '../constants/ActionTypes';
 import getTutors from '../api/Tutors'
 import { put, takeEvery,call } from 'redux-saga/effects'
+import * as TutorsAction from './TutorsAction'
 
 
 function* fetchTutorsAsync (action) {
     try {
         const tutors = yield getTutors();
-        yield put({ type: TUTOR_ACTIONS.RECEIVE_TUTORS, tutors })
+        yield put(TutorsAction.receiveTutors(tutors))
     }
     catch (e){
 
-    }
-}
-function* fetchTutors (action) {
-    console.log("fetchdata")
-    try {
-        const tutors = yield getTutors()
-        yield put(receiveTutors(tutors ))
-    } catch (e) {
-        console.log(e)
-        //yield put({ type: SAGA_ACTIONS.FETCHING_DATA_FAILURE })
     }
 }
 function* watchFetchTutors() {
