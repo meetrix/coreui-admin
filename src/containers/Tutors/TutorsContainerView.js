@@ -9,9 +9,12 @@ import Tutors from '../../components/Tutors/Tutors'
 
 class TutorsContainerView extends Component {
 
+    componentWillMount(){
+        this.props.actions.getTutors();
+    }
     render() {
         return(
-            <Tutors tutors={this.props.tutors} getTutors={this.props.getTutors} />
+            <Tutors tutors={this.props.tutors} actions={this.props.actions} />
         )
     }
 }
@@ -23,7 +26,7 @@ TutorsContainerView.propTypes = {
 
 
     })),
-    getTutors: PropTypes.func.isRequired
+    actions: PropTypes.object.isRequired
 
 };
 

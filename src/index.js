@@ -36,7 +36,7 @@ const initialState = {
 
 
 const store = configure(initialState);
-store.dispatch(getTutors());
+//store.dispatch(getTutors());
 
 ReactDOM.render((
     <Provider store={store}>

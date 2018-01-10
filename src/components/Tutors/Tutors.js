@@ -19,7 +19,7 @@ class Tutors extends Component {
                     <Tutor
                         key={tutor.id}
                         {...tutor}
-                        getTutors={this.props.getTutors}
+                        actions={this.props.actions}
                     />)}
             </ul>
 
@@ -35,7 +35,7 @@ Tutors.propTypes = {
 
 
     })),
-    getTutors: PropTypes.func.isRequired
+    actions: PropTypes.object.isRequired
 
 };
 

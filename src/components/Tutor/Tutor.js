@@ -12,7 +12,9 @@ import PropTypes from 'prop-types';
 class Tutor extends Component {
 
     componentWillMount(){
-        //this.props.getTutors();
+
+        console.log("Tutors")
+        console.log(this.props.actions)
     }
     render() {
         return(
@@ -28,7 +30,7 @@ class Tutor extends Component {
 Tutor.propTypes = {
     id:PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    getTutors:PropTypes.func.isRequired
+    actions:PropTypes.object.isRequired
 
 
 

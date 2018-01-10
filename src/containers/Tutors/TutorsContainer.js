@@ -3,12 +3,13 @@
  */
 // Core modules
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 //React Component
 import TutorsView from './TutorsContainerView'
 
 //Redux Action
-import { getTutors } from '../../actions'
+import * as TotursActions from '../../actions'
 
 
 function mapStateToProps(state){
@@ -18,9 +19,10 @@ function mapStateToProps(state){
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    getTutors: () => {
-        dispatch(getTutors())
-    }
+    actions:bindActionCreators(TotursActions,dispatch)
+    // getTutors: () => {
+    //     dispatch(getTutors())
+    // }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TutorsView);
