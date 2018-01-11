@@ -8,10 +8,10 @@ import {bindActionCreators} from 'redux';
 //React Component
 import TutorsView from './TutorsContainerView'
 
-//Redux Action
-import * as TotursActions from '../../actions/TutorsAction'
 //
-import {KEY} from '../../constants/ActionCreatorTypes'
+import {ACTION_KEY as KEYS,ACTION_ATTR as ATTRS  }from '../../constants/constant'
+
+import {actionCreatorFactory} from '../../helpers/actionCreator'
 
 function mapStateToProps(state){
     return {
@@ -20,13 +20,7 @@ function mapStateToProps(state){
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    actions:bindActionCreators(TotursActions,dispatch)
-    //bindActionCreators({actions},dispatch)
-    //tutorsAction create
-    //createActions(KEY.STUDENT_ACTION_CREATE)
-    // getTutors: () => {
-    //     dispatch(getTutors())
-    // }
+    actions:{getTutors:bindActionCreators(actionCreatorFactory(KEYS.TUTOR, ATTRS.PAYLOAD),dispatch)}
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TutorsView);

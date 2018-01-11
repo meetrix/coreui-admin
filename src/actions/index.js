@@ -1,4 +1,4 @@
-import {TUTOR_ACTIONS} from '../constants/ActionTypes';
+import {TUTOR_ACTIONS} from '../constants/constant';
 import { put, takeEvery } from 'redux-saga/effects'
 // export const getTutors = (tutors) => ({
 //     type: TUTOR_ACTIONS.FETCH_TUTORS,

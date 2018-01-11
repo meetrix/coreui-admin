@@ -23,8 +23,6 @@ import TutorsContainer from './containers/Tutors/TutorsContainer'
 // Containers
 import Full from './containers/Full/'
 
-//Action
-import {getTutors} from './actions'
 //Configure Store
 import configure from './configurestore'
 //Initiate store
@@ -32,12 +30,7 @@ const initialState = {
     tutors: [{id:0, name:'init'}]
 };
 
-
-
-
 const store = configure(initialState);
-//store.dispatch(getTutors());
-
 ReactDOM.render((
     <Provider store={store}>
       <HashRouter>

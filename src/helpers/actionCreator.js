@@ -2,10 +2,14 @@
  * Created by supun on 10/01/18.
  */
 
-import  * as ActionType from '../constants/ActionsTypeOFActionCreator'
+import {REDUX_ACTIONS} from '../constants/constant'
 
 
-export const createActions=(KEY)=>{
-        console.log(ActionType[KEY])
+export const actionCreatorFactory = (key, ...argNames) => (...args) => {
 
-}
+    const action = {type: REDUX_ACTIONS.FETCHING, key};
+    argNames.forEach((arg, index) => {
+        action[argNames[index]] = args[index];
+    });
+    return action;
+};
