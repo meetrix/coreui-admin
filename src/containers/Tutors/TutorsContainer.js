@@ -11,7 +11,7 @@ import TutorsView from './TutorsContainerView'
 //
 import {ACTION_KEY as KEYS,ACTION_ATTR as ATTRS  }from '../../constants/constant'
 
-import {actionCreatorFactory} from '../../helpers/actionCreator'
+import {actionCreatorFactory} from '../../actions/actionCreator'
 
 function mapStateToProps(state){
     return {
