@@ -8,10 +8,18 @@ let metadata = {};
 metadata[KEYS.TUTOR] = {
     url: URLS.TUTOR,
     options: {
-        method: HTTP_METHODS.GET
+        method: HTTP_METHODS.POST
     },
     failureAction: ACTIONS.HANDLE_TUTOR_DATA_FETCH_FAILURE,
     successAction: ACTIONS.SET_TUTOR_DATA
+};
+metadata[KEYS.LOGIN] = {
+    url: URLS.LOGIN,
+    options: {
+        method: HTTP_METHODS.POST
+    },
+    failureAction: ACTIONS.HANDLE_LOGIN_DATA_FETCH_FAILURE,
+    successAction: ACTIONS.SET_LOGIN_DATA
 };
 
 export default metadata;

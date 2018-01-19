@@ -16,7 +16,7 @@ import '../scss/style.scss'
 import '../scss/core/_dropdown-menu-right.scss'
 
 //Views
-import Login from './views/Pages/Login/'
+import Login from './containers/Login/LoginContainer'
 import Register from './views/Pages/Register/'
 import TutorsContainer from './containers/Tutors/TutorsContainer'
 

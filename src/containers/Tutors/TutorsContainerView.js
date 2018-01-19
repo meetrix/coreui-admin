@@ -10,7 +10,7 @@ import Tutors from '../../components/Tutors/Tutors'
 class TutorsContainerView extends Component {
 
     componentWillMount(){
-        this.props.actions.getTutors();
+        this.props.actions.getTutors({id:1});
     }
     render() {
         return(

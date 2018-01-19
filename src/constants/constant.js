@@ -1,5 +1,5 @@
 
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'http://localhost:9000';
 export const REDUX_ACTIONS = {
     //saga action
     FETCHING:'FETCHING',
@@ -7,13 +7,34 @@ export const REDUX_ACTIONS = {
     FETCHING_SUCCESS : 'FETCHING_SUCCESS',
     FETCHING_FAILURE:'FETCHING_FAILURE',
     //tutor redux action
+
     SET_TUTOR_DATA: "SET_TUTOR_DATA",
     HANDLE_TUTOR_DATA_FETCH_FAILURE: "HANDLE_TUTOR_DATA_FETCH_FAILURE",
+    //login redux action
+    HANDLE_LOGIN_DATA_FETCH_FAILURE:"HANDLE_LOGIN_DATA_FETCH_FAILURE",
+    SET_LOGIN_DATA:"SET_LOGIN_DATA",
+
+}
+export const STORE_INITIATE_VALUE={
+    AUTH_INITIATE: [
+    {
+        isLogin:false,
+        user: {
+            _id:undefined,
+            username: undefined,
+            email: undefined,
+            roles: undefined
+        },
+        session: undefined,
+        authHeader:undefined
+    }
+]
 
 }
 
 export const ACTION_KEY ={
 
+    LOGIN:"LOGIN",
     TUTOR :"TUTOR"
 }
 
@@ -21,7 +42,8 @@ export const ACTION_ATTR ={
     PAYLOAD:'payload'
 }
 export const URLS = {
-    TUTOR: BACKEND_URL+'/tutor'
+    TUTOR: BACKEND_URL+'/tutor',
+    LOGIN:BACKEND_URL+'/api/login'
 };
 export const HTTP_METHODS = {
     GET: "GET",

@@ -20,15 +20,19 @@ export default (url, options) =>
 
         options.headers = new Headers({
             "Content-Type": "application/json"
+
         });
 
         if (typeof options.body === "object") {
             options.body = JSON.stringify(options.body);
         }
-
+        console.log("serever request")
+        console.log(url)
+        console.log(options)
         fetch(url, options).then((res) => {
             // Wait for response data to resolve before resolving the fetch promise
             res.json().then((data) => {
+                console.log("server response");
                 res.data = data;
 
                 if (res.status === HTTP_CODES.NOT_AUTHENTICATED) {

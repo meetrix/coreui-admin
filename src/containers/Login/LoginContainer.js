@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 //React Component
-import TutorsView from './TutorsContainerView'
+import LoginContainerView from './LoginContainerView'
 
 //
 import {ACTION_KEY as KEYS,ACTION_ATTR as ATTRS  }from '../../constants/constant'
@@ -15,13 +15,15 @@ import {actionCreatorFactory} from '../../actions/actionCreator'
 
 function mapStateToProps(state){
     return {
-        tutors: state.tutors
+        auth: state.auth
     }
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    actions:{getTutors:bindActionCreators(actionCreatorFactory(KEYS.TUTOR, ATTRS.PAYLOAD),dispatch)
+    actions:{login:bindActionCreators(actionCreatorFactory(KEYS.LOGIN, ATTRS.PAYLOAD),dispatch)
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TutorsView);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainerView);/**
+ * Created by supun on 12/01/18.
+ */
